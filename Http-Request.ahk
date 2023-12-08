@@ -26,7 +26,10 @@ class HTTP {
             }
             Sleep 100
         }
-        return this.req.ResponseText
+        str := this.req.ResponseText
+        str := LTrim(str,"[")
+        str := RTrim(str,"]")
+        return str
     }
     Get(url) { ; Function for Get request. Works
         this.OpenRequest("GET",url)
