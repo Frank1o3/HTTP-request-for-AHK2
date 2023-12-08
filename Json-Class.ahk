@@ -2,7 +2,7 @@ class JSON {
     parse(str) { ; Parse json data. Works
         htmlfile := ComObject('htmlfile')
         htmlfile.write('<meta http-equiv="X-UA-Compatible" content="IE=edge">')
-        return htmlfile.parentWindow.JSON.parse(str)
+        return ObjPtr(htmlfile.parentWindow.JSON.parse(str))
     }
 
     stringify(obj) { ; IS tested. Works
