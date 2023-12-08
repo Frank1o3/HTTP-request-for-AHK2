@@ -7,7 +7,7 @@ class JSON {
         return htmlfile.parentWindow.JSON.parse(str)
     }
 
-    stringify(obj) { ; Is not tested
+    stringify(obj) { ; IS tested. Works
         htmlfile := ComObject('htmlfile')
         htmlfile.write('<meta http-equiv="X-UA-Compatible" content="IE=edge">')
         return htmlfile.parentWindow.JSON.stringify(obj)
