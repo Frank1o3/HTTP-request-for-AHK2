@@ -10,4 +10,5 @@ MsgBox response
 
 res := Tool.parse(response)
 
+FileAppend(response,"data.json")
 MsgBox res.id
