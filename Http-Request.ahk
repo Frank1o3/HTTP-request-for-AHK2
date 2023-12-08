@@ -1,17 +1,17 @@
 class HTTP {
     __Init() {
-        this.req := ComObject('WinHttp.WinHttpRequest.5.1')
+        this.req := ComObject('WinHttp.WinHttpRequest.5.1') ; Interface for http request
     }
-    SetTimeouts(resolveTimeout, connectTimeout, sendTimeout, receiveTimeout) {
+    SetTimeouts(resolveTimeout, connectTimeout, sendTimeout, receiveTimeout) { ; Set the timeouts for a request
         this.req.SetTimeouts(resolveTimeout, connectTimeout, sendTimeout, receiveTimeout)
     }
-    SetHeader(header, value) {
+    SetHeader(header, value) { ; set the header for a request
         this.req.SetRequestHeader(header, value)
     }
-    OpenRequest(method,url) {
+    OpenRequest(method,url) { ; Open the request
         this.req.Open(method, url)
     }
-    SendRequest(data := "") {
+    SendRequest(data := "") { ; Send the request
         this.req.Send(data)
         attempts := 0
         while (this.req.Status != 200) {
@@ -28,16 +28,16 @@ class HTTP {
         }
         return this.req.ResponseText
     }
-    Get(url) {
+    Get(url) { ; Function for Get request. Works
         this.OpenRequest("GET",url)
         return this.SendRequest()
     }
-    Post(url, data) {
+    Post(url, data) { ; Function for Post request. Works
         this.OpenRequest("POST",url)
         this.SetHeader('content-Type', 'application/json')
         return this.SendRequest(data)
     }
-    Put(url, data) {
+    Put(url, data) { ; Function for Put request. Works
         this.OpenRequest("PUT",url)
         this.SetHeader('content-Type', 'application/json')
         return this.SendRequest(data)
