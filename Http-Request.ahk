@@ -27,8 +27,8 @@ class HTTP {
             Sleep 100
         }
         str := this.req.ResponseText
-        str := LTrim(str,"[")
-        str := RTrim(str,"]")
+        ; str := LTrim(str,"[") ; You can un comment this line if a json payload start and end with those.
+        ; str := RTrim(str,"]") ; You can un comment this line if a json payload start and end with those.
         return str
     }
     Get(url) { ; Function for Get request. Works
